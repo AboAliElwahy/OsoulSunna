@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:OsoulSunna.Converters"
+             xmlns:accounts="clr-namespace:OsoulSunna.ViewModels"
+             xmlns:Behavior="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="OsoulSunna.Views.DetailsPage"
+             BackgroundColor="White"
+             Title="DetailsPage">
+    <ContentPage.BindingContext>
+        <accounts:DetailsVM/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:StringNullOrEmptyToVisibilityConverter x:Key="StringNullOrEmptyToVisibilityConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView VerticalOptions="StartAndExpand">
+        <StackLayout>
+            <CollectionView VerticalOptions="CenterAndExpand" ItemsSource="{Binding LocalBooks}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="3" Margin="1" BorderColor="Black">
+                            <StackLayout>
+                                <Behavior:Expander>
+                                    <Behavior:Expander.Header>
+                                        <StackLayout>
+                                            <Label Text="{Binding Head}" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="24" TextColor="#ba372a"/>
+                                        </StackLayout>
+                                    </Behavior:Expander.Header>
+                                    <Behavior:Expander.Content>
+                                        <StackLayout>
+                                            <Behavior:Expander>
+                                                <Behavior:Expander.Header>
+                                                    <Frame Margin="2" Padding="3" BackgroundColor="AntiqueWhite" IsVisible="{Binding Source1, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+                                                        <Label Text="{Binding Source1}"  FontAttributes="Bold" TextColor="#263fa1" FontSize="18" HorizontalTextAlignment="Center"/>
+                                                    </Frame>
+                                                </Behavior:Expander.Header>
+                                                <Behavior:Expander.Content>
+                                                    <StackLayout IsVisible="{Binding Content1, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+                                                        <Label Text="{Binding Content1}" FontFamily="Calibri" FontSize="22" HorizontalTextAlignment="Center" TextType="Html" TextColor="Black"/>
+                                                    </StackLayout>
+                                                </Behavior:Expander.Content>
+                                            </Behavior:Expander>
+
+                                            <Behavior:Expander>
+                                                <Behavior:Expander.Header>
+                                                    <Frame Margin="2" Padding="3" BackgroundColor="AntiqueWhite" IsVisible="{Binding Source2, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+                                                        <Label Text="{Binding Source2}" FontAttributes="Bold" TextColor="#263fa1" FontSize="18" HorizontalTextAlignment="Center"/>
+                                                    </Frame>
+                                                </Behavior:Expander.Header>
+                                                <Behavior:Expander.Content>
+                                                    <StackLayout IsVisible="{Binding Content2, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+                                                        <Label Text="{Binding Content2}" FontSize="22" HorizontalTextAlignment="Center" TextType="Html" TextColor="Black"/>
+                                                    </StackLayout>
+                                                </Behavior:Expander.Content>
+                                            </Behavior:Expander>
+
+                                            <Behavior:Expander>
+                                                <Behavior:Expander.Header>
+                                                    <Frame Margin="2" Padding="3" BackgroundColor="AntiqueWhite" IsVisible="{Binding Source3, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+                                                        <Label Text="{Binding Source3}" FontFamily="Calibri" FontAttributes="Bold" TextColor="#263fa1" FontSize="18" HorizontalTextAlignment="Center"/>
+                                                    </Frame>
+                                                </Behavior:Expander.Header>
+                                                <Behavior:Expander.Content>
+                                                    <StackLayout IsVisible="{Binding Content3, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+                                                        <Label Text="{Binding Content3}" FontSize="22" HorizontalTextAlignment="Center" TextType="Html" TextColor="Black"/>
+                                                    </StackLayout>
+                                                </Behavior:Expander.Content>
+                                            </Behavior:Expander>
+
+                                            <Behavior:Expander>
+                                                <Behavior:Expander.Header>
+                                                    <Frame Margin="2" Padding="3" BackgroundColor="AntiqueWhite" IsVisible="{Binding Source4, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+                                                        <Label Text="{Binding Source4}" FontAttributes="Bold" TextColor="#263fa1" FontSize="18" HorizontalTextAlignment="Center"/>
+                                                    </Frame>
+                                                </Behavior:Expander.Header>
+                                                <Behavior:Expander.Content>
+                                                    <StackLayout IsVisible="{Binding Content4, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+                                                        <Label Text="{Binding Content4}" FontSize="22" HorizontalTextAlignment="Center" TextType="Html" TextColor="Black"/>
+                                                    </StackLayout>
+                                                </Behavior:Expander.Content>
+                                            </Behavior:Expander>
+
+                                            <Behavior:Expander>
+                                                <Behavior:Expander.Header>
+                                                    <Frame Margin="2" Padding="3" BackgroundColor="AntiqueWhite" IsVisible="{Binding Source5, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+                                                        <Label Text="{Binding Source5}" FontAttributes="Bold" TextColor="#263fa1" FontSize="18" HorizontalTextAlignment="Center"/>
+                                                    </Frame>
+                                                </Behavior:Expander.Header>
+                                                <Behavior:Expander.Content>
+                                                    <StackLayout IsVisible="{Binding Content5, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+                                                        <Label Text="{Binding Content5}" FontSize="22" HorizontalTextAlignment="Center" TextType="Html" TextColor="Black"/>
+                                                    </StackLayout>
+                                                </Behavior:Expander.Content>
+                                            </Behavior:Expander>
+                                        </StackLayout>
+                                    </Behavior:Expander.Content>
+                                </Behavior:Expander>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
